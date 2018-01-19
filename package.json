@@ -6,6 +6,7 @@
     "start": "node ./bin/www",
     "dev": "./node_modules/.bin/webpack-dev-server --config ./webpack/webpack.dev.config.js",
     "lint": "./node_modules/.bin/eslint --ext .js,.jsx --ignore-path .eslintignore .",
+    "precommit": "npm run lint",
     "build": "./node_modules/.bin/webpack --config ./webpack/webpack.dev.config.js"
   },
   "eslintConfig": {
@@ -36,6 +37,7 @@
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.5.1",
+    "husky": "^0.14.3",
     "webpack-dev-server": "^2.11.0",
     "webpack-jarvis": "^0.2.2"
   }
