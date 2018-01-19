@@ -1,0 +1,7 @@
+{
+    "mongodb": {
+        "uri": "localhost",
+        "port": "32768",
+        "db": "travis"
+    }
+}
