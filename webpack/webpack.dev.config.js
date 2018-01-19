@@ -1,7 +1,8 @@
-var webpack = require('webpack');
-var path = require('path');
+const webpack = require('webpack');
+const path = require('path');
+const Jarvis = require('webpack-jarvis');
 
-var parentDir = path.join(__dirname, '../');
+const parentDir = path.join(__dirname, '../');
 
 module.exports = {
     entry: [
@@ -20,6 +21,11 @@ module.exports = {
             }
         ],
     },
+    plugins: [
+        new Jarvis({
+            port: 1337
+        })
+    ],
     output: {
         path: parentDir + 'dist',
         filename: 'bundle.js'
