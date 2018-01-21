@@ -1,11 +1,11 @@
 const express = require('express');
-const path = require('path');
+const Utils = require('../services/Utils');
 
 const router = express.Router();
 
 /* GET home page. */
-router.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '../dist/index.html'));
+router.get('/', Utils.isLoggedIn, (req, res) => {
+  res.render('index');
 });
 
 module.exports = router;

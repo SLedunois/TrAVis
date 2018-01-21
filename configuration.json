@@ -2,6 +2,9 @@
     "mongodb": {
         "uri": "localhost",
         "port": "32768",
-        "db": "travis"
+        "dbName": "travis"
+    },
+    "session": {
+        "secret": "TrAVis"
     }
 }
