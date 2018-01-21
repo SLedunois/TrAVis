@@ -1,12 +1,19 @@
+sudo: required
+
 language: node_js
 node_js:
   - stable
+
+services:
+  - mongodb
 
 install:
 - npm install
 
 script:
 - npm run lint
+- node scripts/initTests
+- npm test
 - npm run build
 
 notifications:

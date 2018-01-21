@@ -8,5 +8,10 @@ module.exports = {
         "no-restricted-globals": "off",
         "no-console": "off",
         "no-plusplus": "off"
+    },
+    "globals": {
+        "expect": true,
+        "test": true,
+        "beforeAll": true
     }
 };

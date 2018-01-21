@@ -8,16 +8,16 @@ const state = {
  * Connect database to mongodb
  * @param {String} url url database to connect
  * @param {String} dbName database name to connect
- * @param {Function} done Next middleware function
  */
-exports.connect = (url, dbName, done) => {
-  if (state.db) return done();
-
-  MongoClient.connect(url, (err, db) => {
-    if (err) return done(err);
-    state.db = db.db(dbName);
-    return done();
-  });
+exports.connect = async (url, dbName) => {
+  if (!state.db) {
+    try {
+      const db = await MongoClient.connect(url);
+      state.db = db.db(dbName);
+    } catch (err) {
+      throw err;
+    }
+  }
 };
 
 /**
