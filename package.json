@@ -6,9 +6,9 @@
     "start": "node ./bin/www",
     "dev": "./node_modules/.bin/webpack-dev-server --config ./webpack/webpack.dev.config.js",
     "lint": "./node_modules/.bin/eslint --ext .js,.jsx --ignore-path .eslintignore .",
-    "test": "./node_modules/.bin/jest --forceExit --ci",
     "precommit": "npm run lint",
-    "build": "./node_modules/.bin/webpack --config ./webpack/webpack.dev.config.js"
+    "build": "./node_modules/.bin/webpack --config ./webpack/webpack.dev.config.js",
+    "test": "./node_modules/.bin/jest  --coverage --forceExit --ci && cat ./coverage/lcov.info | ./node_modules/.bin/codacy-coverage && rm -rf ./coverage"
   },
   "eslintConfig": {
     "env": {
@@ -41,6 +41,7 @@
     "webpack": "^3.10.0"
   },
   "devDependencies": {
+    "codacy-coverage": "^2.0.3",
     "eslint": "^4.15.0",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-plugin-import": "^2.8.0",
@@ -48,6 +49,7 @@
     "eslint-plugin-react": "^7.5.1",
     "husky": "^0.14.3",
     "jest": "^22.1.4",
+    "mocha": "^5.0.0",
     "webpack-dev-server": "^2.11.0",
     "webpack-jarvis": "^0.2.2"
   }
