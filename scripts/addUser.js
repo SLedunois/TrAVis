@@ -12,17 +12,17 @@ const password = process.argv[3];
 
 const { uri, port, dbName } = configuration;
 
-db.connect(`mongodb://${uri}:${port}`, dbName, (err) => {
-  if (err) {
+db.connect(`mongodb://${uri}:${port}`, dbName)
+  .then(() => {
+    db.get().collection('User').insert({
+      username,
+      password: Utils.generateHash(password),
+    }).then((res, userErr) => {
+      if (userErr) throw new Error('[Script@addUser] Unable to create user');
+      process.exit();
+    });
+  })
+  .catch((err) => {
     console.error(err);
     throw new Error('[Script@addUser] Unable to connect to MongoDB');
-  }
-
-  db.get().collection('User').insert({
-    username,
-    password: Utils.generateHash(password),
-  }).then((res, userErr) => {
-    if (userErr) throw new Error('[Script@addUser] Unable to create user');
-    process.exit();
   });
-});

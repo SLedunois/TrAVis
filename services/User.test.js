@@ -7,13 +7,13 @@ const { uri, port, dbName } = configuration;
 
 let userTest;
 
-beforeAll(() => db.connect(`mongodb://${uri}:${port}`, dbName, async (err) => {
-  console.log('connecting');
-  if (err) {
-    console.error(err);
-    throw new Error('[User.test] Unable to connect to MongoDB');
+beforeAll(async () => {
+  try {
+    await db.connect(`mongodb://${uri}:${port}`, dbName)
+  } catch (err) {
+    throw err;
   }
-}));
+});
 
 test('[UserService@getUser] It should return the user test', async () => {
   const user = await UserService.getUser('user-test');
