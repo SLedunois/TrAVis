@@ -1,7 +1,7 @@
 {
     "mongodb": {
         "uri": "localhost",
-        "port": "32770",
+        "port": "27017",
         "dbName": "travis"
     },
     "session": {
