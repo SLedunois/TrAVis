@@ -32,5 +32,10 @@ module.exports = {
   devServer: {
     contentBase: `${parentDir}dist`,
     historyApiFallback: true,
+    proxy: {
+      '*': {
+        target: `http://localhost:${process.env.NODE_ENV || 3000}`
+      }
+    }
   },
 };
