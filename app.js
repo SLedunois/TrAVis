@@ -1,3 +1,5 @@
+const NODE_ENV = process.env.NODE_ENV || 'dev';
+
 const configuration = require('./configuration.json');
 const express = require('express');
 const path = require('path');
@@ -8,8 +10,25 @@ const bodyParser = require('body-parser');
 const db = require('./configuration/database');
 const session = require('express-session');
 const flash = require('connect-flash');
+const compression = require('compression');
+const { Engine } = require('apollo-engine');
+const { isLoggedIn } = require('./services/Utils');
+
+const { graphqlExpress, graphiqlExpress } = require('graphql-server-express');
+const schema = require('./graphql/schema');
 
 const app = express();
+
+const { engineConfig } = configuration;
+const engine = new Engine({
+  engineConfig,
+  endpoint: '/graphql',
+  graphqlPort: process.env.PORT || '3000',
+});
+
+engine.start();
+
+app.use(engine.expressMiddleware());
 
 // uncomment after placing your favicon in /public
 // app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -20,6 +39,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'dist')));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+app.use(compression());
 
 app.use(session({
   secret: configuration.session.secret,
@@ -38,6 +58,17 @@ const auth = require('./routes/auth');
 
 app.use('/', index);
 app.use('/auth', auth);
+app.use('/graphql', isLoggedIn, bodyParser.json(), graphqlExpress(req => ({
+  schema,
+  context: { user: req.session.passport.user },
+  tracing: true,
+  cacheControl: true,
+})));
+if (NODE_ENV === 'dev') {
+  app.use('/graphiql', graphiqlExpress({
+    endpointURL: '/graphql',
+  }));
+}
 
 // catch 404 and forward to error handler
 /** app.use(function(req, res, next) {
