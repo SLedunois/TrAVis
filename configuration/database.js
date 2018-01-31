@@ -15,7 +15,8 @@ exports.connect = async (url, dbName) => {
       const db = await MongoClient.connect(url);
       state.db = db.db(dbName);
     } catch (err) {
-      throw err;
+      console.error(err);
+      process.exit();
     }
   }
 };

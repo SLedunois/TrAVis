@@ -7,28 +7,12 @@ const path = require('path');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
+const { graphiqlExpress } = require('graphql-server-express');
 const db = require('./configuration/database');
 const session = require('express-session');
 const flash = require('connect-flash');
-const compression = require('compression');
-const { Engine } = require('apollo-engine');
-const { isLoggedIn } = require('./services/Utils');
-
-const { graphqlExpress, graphiqlExpress } = require('graphql-server-express');
-const schema = require('./graphql/schema');
 
 const app = express();
-
-const { engineConfig } = configuration;
-const engine = new Engine({
-  engineConfig,
-  endpoint: '/graphql',
-  graphqlPort: process.env.PORT || '3000',
-});
-
-engine.start();
-
-app.use(engine.expressMiddleware());
 
 // uncomment after placing your favicon in /public
 // app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -39,7 +23,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'dist')));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-app.use(compression());
 
 app.use(session({
   secret: configuration.session.secret,
@@ -55,15 +38,12 @@ app.use(passport.session());
 
 const index = require('./routes/index');
 const auth = require('./routes/auth');
+const graphQL = require('./routes/graphql');
 
 app.use('/', index);
 app.use('/auth', auth);
-app.use('/graphql', isLoggedIn, bodyParser.json(), graphqlExpress(req => ({
-  schema,
-  context: { user: req.session.passport.user },
-  tracing: true,
-  cacheControl: true,
-})));
+app.use('/graphql', bodyParser.json(), graphQL);
+
 if (NODE_ENV === 'dev') {
   app.use('/graphiql', graphiqlExpress({
     endpointURL: '/graphql',
@@ -90,10 +70,6 @@ if (NODE_ENV === 'dev') {
 
 const { uri, port, dbName } = configuration.mongodb;
 
-db.connect(`mongodb://${uri}:${port}`, dbName, (err) => {
-  if (err) {
-    throw new Error('Unable to connect to MongoDB');
-  }
-});
+db.connect(`mongodb://${uri}:${port}`, dbName);
 
 module.exports = app;

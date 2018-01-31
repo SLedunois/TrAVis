@@ -19,7 +19,8 @@ class Utils {
   }
 
   /**
-   * Returns if current user is logged in. If not, redirect to authentification page
+   * Returns if current user is logged in. If not, redirect
+   * to authentification page
    * @param {HttpRequest} req Http request
    * @param {HttpResponse} res Http response
    * @param {Function} next Next function middleware

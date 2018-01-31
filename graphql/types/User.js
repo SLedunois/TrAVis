@@ -3,6 +3,8 @@ const type = [
     type User {
       username: String
       password: String
+      firstname: String
+      lastname: String
     }
   `,
 ];

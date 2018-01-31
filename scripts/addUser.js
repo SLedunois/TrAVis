@@ -3,7 +3,8 @@ const Utils = require('../services/Utils');
 const configuration = require('../configuration.json').mongodb;
 
 if (process.argv.length <= 2) {
-  console.error('Argument unvailable. Please restart with `node addUser <username> <password>`');
+  console.error('Argument unvailable. Please restart with ' +
+  '`node addUser <username> <password>`');
   process.exit();
 }
 

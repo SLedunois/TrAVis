@@ -5,18 +5,28 @@ const parentDir = path.join(__dirname, '../');
 
 module.exports = {
   entry: [
-    path.join(parentDir, 'app/App.js'),
+    path.join(parentDir, 'app/index.jsx'),
   ],
+  resolve: {
+    extensions: ['.js', '.jsx']
+  },
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         loader: 'babel-loader',
+        query: {
+          presets: ['es2015', 'react'],
+          plugins: ['react-css-modules'],
+        }
       },
       {
         test: /\.css$/,
-        loaders: ['style-loader', 'css-loader'],
+        loaders: [
+          'style-loader',
+          'css-loader?importLoader=1&modules&localIdentName=[path]___[name]__[local]___[hash:base64:5]'
+        ],
       },
     ],
   },
@@ -39,3 +49,4 @@ module.exports = {
     }
   },
 };
+ 

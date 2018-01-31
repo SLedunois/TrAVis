@@ -1,0 +1,68 @@
+.header {
+  background-color: #ffffff;
+  height: 64px;
+  width: 100%;
+  line-height: 64px;
+  box-shadow: 0 1px #DFE2E5;
+  position: relative;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 16px;
+}
+
+.header ul {
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  left: 0;
+}
+
+.header ul li {
+  display: inline-block;
+  margin-left: 40px;
+}
+
+.header ul li svg {
+  fill: #435163;
+  margin-right: 8px;
+}
+
+.header ul li:first-child {
+  margin-left: 24px;
+}
+
+.dashboardMenu svg, .messagesMenu svg {
+  width: 14px;
+}
+
+.timelineMenu svg {
+  height: 12px;
+}
+
+.logo {
+  width: 25px;
+  height: 40px;
+  margin: 0 auto;
+  padding: 12px 0;
+}
+
+.logout {
+  position: absolute;
+  right: 24px;
+  top: 0;
+}
+
+.dashboardMenu.selected,
+.timelineMenu.selected,
+.messagesMenu.selected {
+  color: #5272FF;
+}
+
+.dashboardMenu.selected svg *,
+.timelineMenu.selected svg * {
+  stroke: #5272FF !important;
+}
+
+.messagesMenu.selected svg * {
+  fill: #5272FF !important;
+}
