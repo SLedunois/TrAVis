@@ -8,7 +8,8 @@ module.exports = {
     path.join(parentDir, 'app/index.jsx'),
   ],
   resolve: {
-    extensions: ['.js', '.jsx']
+    extensions: ['.js', '.jsx'],
+    modules: ['node_modules']
   },
   module: {
     rules: [

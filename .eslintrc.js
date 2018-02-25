@@ -21,5 +21,7 @@ module.exports = {
         "beforeAll": true,
         "React": true,
         "document": true,
+        "describe": true,
+        "it": true
     }
 };

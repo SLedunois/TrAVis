@@ -26,7 +26,9 @@ const Menu = (props) => {
         <Logo />
       </div>
       <div className={styles.logout}>
-        <a href="/auth/logout">{`${user.firstname} ${user.lastname}`}</a>
+        <a href="/auth/logout" id="logout">
+          {`${user.firstname} ${user.lastname}`}
+        </a>
       </div>
     </header>
   );

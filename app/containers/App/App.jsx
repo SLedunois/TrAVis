@@ -1,19 +1,20 @@
 import React, { Component } from 'react';
-import gql from 'graphql-tag';
 import graphql from 'react-apollo/graphql';
 import { bool, object, shape } from 'prop-types';
+
+import getUserQuery from './query';
 
 import Menu from '../../components/Menu/Menu';
 import Loader from '../../components/Loader/Loader';
 
 class App extends Component {
   render() {
-    if (this.props.getUserQuery.loading) {
+    if (this.props.data.loading) {
       return (
         <Loader />
       );
     }
-    const user = this.props.getUserQuery.getUser;
+    const user = this.props.data.getUser;
     if (user) {
       return (
         <Menu user={user} />
@@ -25,21 +26,11 @@ class App extends Component {
   }
 }
 
-const getUserQuery = gql`
-  query getUserQuery {
-    getUser {
-      username,
-      firstname,
-      lastname
-    }
-  }
-`;
-
 App.propTypes = {
-  getUserQuery: shape({
+  data: shape({
     getUser: object,
     loading: bool,
   }).isRequired,
 };
 
-export default graphql(getUserQuery, { name: 'getUserQuery' })(App);
+export default graphql(getUserQuery)(App);

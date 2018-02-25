@@ -1,6 +1,6 @@
-const dbConnect = require('../test/dbConnect');
-const Utils = require('./Utils');
-const UserService = require('./User');
+const dbConnect = require('../../test/dbConnect');
+const Utils = require('../Utils');
+const UserService = require('../User');
 
 let userTest;
 

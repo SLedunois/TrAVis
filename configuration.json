@@ -6,8 +6,5 @@
     },
     "session": {
         "secret": "TrAVis"
-    },
-    "engineConfig": {
-        "apiKey": "service:SLedunois-TrAVis:ubml6_gTEOv8KXd_GpJJ5A"
     }
 }
