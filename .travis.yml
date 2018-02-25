@@ -13,7 +13,7 @@ install:
 script:
 - npm run lint
 - node scripts/initTests
-- npm coverage
+- npm run coverage
 - npm run build
 
 notifications:
