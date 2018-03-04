@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 
 class Messages extends Component {
-  render () {
+  render() {
     return (
       <h1>Messages</h1>
-    )
+    );
   }
 }
 

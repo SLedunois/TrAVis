@@ -14,17 +14,29 @@ const Menu = (props) => {
     <header className={styles.header}>
       <ul>
         <li className={styles.dashboardMenu}>
-          <NavLink exact activeClassName={`${styles.active} ${styles.activeStroke}`} to={`/`}>
+          <NavLink
+            exact
+            activeClassName={`${styles.active} ${styles.activeStroke}`}
+            to="/"
+          >
             <DashboardLogo /> Dashboard
           </NavLink>
         </li>
         <li className={styles.timelineMenu}>
-          <NavLink exact activeClassName={`${styles.active} ${styles.activeStroke}`} to={`/timeline`}>
+          <NavLink
+            exact
+            activeClassName={`${styles.active} ${styles.activeStroke}`}
+            to="/timeline"
+          >
             <TimelineLogo /> Timeline
           </NavLink>
         </li>
         <li className={styles.messagesMenu}>
-          <NavLink exact activeClassName={`${styles.active} ${styles.activeFill}`} to={`/messages`}>
+          <NavLink
+            exact
+            activeClassName={`${styles.active} ${styles.activeFill}`}
+            to="/messages"
+          >
             <MessageLogo /> Messages
           </NavLink>
         </li>

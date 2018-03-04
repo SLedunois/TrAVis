@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 
 class Dashboards extends Component {
-  render () {
+  render() {
     return (
       <h1>Dashboards</h1>
-    )
+    );
   }
 }
 

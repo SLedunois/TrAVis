@@ -23,9 +23,9 @@ class App extends Component {
       return (
         <div>
           <Menu user={user} />
-          <Route exact path="/" component={ Dashboards } />
-          <Route exact path="/timeline" component={ Timeline } />
-          <Route exact path="/messages" component={ Messages } />
+          <Route exact path="/" component={Dashboards} />
+          <Route exact path="/timeline" component={Timeline} />
+          <Route exact path="/messages" component={Messages} />
         </div>
       );
     }

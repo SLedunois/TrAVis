@@ -6,6 +6,7 @@
     "start": "node ./bin/www",
     "dev": "./node_modules/.bin/webpack-dev-server --config ./webpack/webpack.dev.config.js",
     "lint": "./node_modules/.bin/eslint --ext .js,.jsx --ignore-path .eslintignore .",
+    "lint-fix": "./node_modules/.bin/eslint --ext .js,.jsx --ignore-path .eslintignore --fix .",
     "precommit": "npm run lint",
     "build": "./node_modules/.bin/webpack --config ./webpack/webpack.dev.config.js",
     "test": "./node_modules/.bin/jest --forceExit --verbose --config jest.config.js",
