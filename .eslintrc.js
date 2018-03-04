@@ -14,12 +14,11 @@ module.exports = {
                 "ignorePattern": "<(svg|rect|g|path|ellipse)[^>|^\\>]",
             },
         ],
-        "jsx-a11y/anchor-is-valid": [ "error", {
-            "components": [ "Link" ],
-            "specialLink": [ "to" ],
-            "aspects": [ "preferButton" ]
-          }]
-        }
+        "jsx-a11y/anchor-is-valid": ["error", {
+            "components": ["Link"],
+            "specialLink": ["to"],
+            "aspects": ["preferButton"]
+        }]
     },
     "globals": {
         "expect": true,
