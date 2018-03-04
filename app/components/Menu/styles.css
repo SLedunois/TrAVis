@@ -22,6 +22,11 @@
   margin-left: 40px;
 }
 
+.header ul li a {
+  text-decoration: none;
+  color: inherit;
+}
+
 .header ul li svg {
   fill: #435163;
   margin-right: 8px;
@@ -52,17 +57,15 @@
   top: 0;
 }
 
-.dashboardMenu.selected,
-.timelineMenu.selected,
-.messagesMenu.selected {
-  color: #5272FF;
+.active {
+  color: #5272FF !important;
+  transition: all 0.25s ease;
 }
 
-.dashboardMenu.selected svg *,
-.timelineMenu.selected svg * {
+.activeStroke svg *{
   stroke: #5272FF !important;
 }
 
-.messagesMenu.selected svg * {
+.activeFill svg * {
   fill: #5272FF !important;
 }

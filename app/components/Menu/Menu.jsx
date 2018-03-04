@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import { PropTypes } from 'prop-types';
 import styles from './styles.css';
 
@@ -12,14 +13,20 @@ const Menu = (props) => {
   return (
     <header className={styles.header}>
       <ul>
-        <li className={[styles.dashboardMenu, styles.selected].join(' ')}>
-          <DashboardLogo /> Dashboard
+        <li className={styles.dashboardMenu}>
+          <NavLink exact activeClassName={`${styles.active} ${styles.activeStroke}`} to={`/`}>
+            <DashboardLogo /> Dashboard
+          </NavLink>
         </li>
         <li className={styles.timelineMenu}>
-          <TimelineLogo /> Timeline
+          <NavLink exact activeClassName={`${styles.active} ${styles.activeStroke}`} to={`/timeline`}>
+            <TimelineLogo /> Timeline
+          </NavLink>
         </li>
         <li className={styles.messagesMenu}>
-          <MessageLogo /> Messages
+          <NavLink exact activeClassName={`${styles.active} ${styles.activeFill}`} to={`/messages`}>
+            <MessageLogo /> Messages
+          </NavLink>
         </li>
       </ul>
       <div className={styles.logo}>
