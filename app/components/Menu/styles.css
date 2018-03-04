@@ -28,7 +28,7 @@
 }
 
 .header ul li svg {
-  fill: #435163;
+  fill: #2a2f46;
   margin-right: 8px;
 }
 
@@ -58,14 +58,14 @@
 }
 
 .active {
-  color: #5272FF !important;
+  color: #655FFF !important;
   transition: all 0.25s ease;
 }
 
 .activeStroke svg *{
-  stroke: #5272FF !important;
+  stroke: #655FFF !important;
 }
 
 .activeFill svg * {
-  fill: #5272FF !important;
+  fill: #655FFF !important;
 }
