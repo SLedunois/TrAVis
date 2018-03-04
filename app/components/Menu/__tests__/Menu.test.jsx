@@ -1,4 +1,5 @@
 import React from 'react';
+import { MemoryRouter, NavLink } from 'react-router-dom';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import Menu from '../Menu';
@@ -20,5 +21,10 @@ describe('[Component@Menu]', () => {
   it('should render `User TEST` on logout link', () => {
     const menu = shallow(<Menu user={user} />);
     expect(menu.find('#logout').text()).toEqual('User TEST');
+  });
+
+  it('should render class name `active` on first NavLink', () => {
+    const menu = shallow(<MemoryRouter><Menu user={user} /></MemoryRouter>);
+    expect(menu.find(NavLink).first().render().hasClass('.active'));
   });
 });
