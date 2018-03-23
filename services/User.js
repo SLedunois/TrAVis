@@ -1,4 +1,3 @@
-const { ObjectID } = require('mongodb');
 const db = require('../configuration/database');
 
 class UserService {
