@@ -18,7 +18,9 @@ module.exports = {
             "components": ["Link"],
             "specialLink": ["to"],
             "aspects": ["preferButton"]
-        }]
+        }],
+        "jsx-a11y/click-events-have-key-events": "off",
+        "jsx-a11y/no-noninteractive-element-interactions": "off"
     },
     "globals": {
         "expect": true,
