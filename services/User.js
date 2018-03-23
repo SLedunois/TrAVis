@@ -9,7 +9,7 @@ class UserService {
   static async getUserById(id) {
     try {
       return await db.get().collection('User')
-        .findOne({ _id: new ObjectID(id) });
+        .findOne({ _id: id });
     } catch (e) {
       console.error('[UserService@getUserById] ' +
       'An error occured when collecting user');
