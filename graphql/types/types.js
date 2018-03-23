@@ -1,7 +1,12 @@
-const User = require('./User');
+
+const models = require('./models');
+const queries = require('./queries');
+const mutations = require('./mutations');
 
 const typeDefs = [
-  ...User,
+  ...models,
+  ...queries,
+  ...mutations,
 ];
 
 module.exports = typeDefs;
