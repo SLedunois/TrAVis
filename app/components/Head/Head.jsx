@@ -13,7 +13,7 @@ const Head = (props) => {
 };
 
 Head.propTypes = {
-  children: PropTypes.element,
+  children: PropTypes.array,
 };
 
 Head.defaultProps = {
