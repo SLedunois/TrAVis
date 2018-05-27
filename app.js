@@ -1,5 +1,3 @@
-const NODE_ENV = process.env.NODE_ENV || 'dev';
-
 const configuration = require('./configuration.json');
 const express = require('express');
 const path = require('path');
@@ -7,7 +5,6 @@ const path = require('path');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
-const { graphiqlExpress } = require('graphql-server-express');
 const db = require('./configuration/database');
 const session = require('express-session');
 const flash = require('connect-flash');
@@ -38,17 +35,9 @@ app.use(passport.session());
 
 const index = require('./routes/index');
 const auth = require('./routes/auth');
-const graphQL = require('./routes/graphql');
 
 app.use('/', index);
 app.use('/auth', auth);
-app.use('/graphql', bodyParser.json(), graphQL);
-
-if (NODE_ENV === 'dev') {
-  app.use('/graphiql', graphiqlExpress({
-    endpointURL: '/graphql',
-  }));
-}
 
 // catch 404 and forward to error handler
 /** app.use(function(req, res, next) {

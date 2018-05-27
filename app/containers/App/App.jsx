@@ -1,9 +1,5 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
-import graphql from 'react-apollo/graphql';
-import { bool, object, shape } from 'prop-types';
-
-import getUserQuery from './query';
 
 import Menu from '../../components/Menu/Menu';
 import Loader from '../../components/Loader/Loader';
@@ -13,12 +9,17 @@ import Messages from '../Messages/Messages';
 
 class App extends Component {
   render() {
-    if (this.props.data.loading) {
+    const loading = false;
+    if (loading) {
       return (
         <Loader />
       );
     }
-    const user = this.props.data.getUser;
+    const user = {
+      username: 'sled',
+      firstname: 'Simon',
+      lastname: 'LEDUNOIS',
+    };
     if (user) {
       return (
         <div>
@@ -32,11 +33,4 @@ class App extends Component {
   }
 }
 
-App.propTypes = {
-  data: shape({
-    getUser: object,
-    loading: bool,
-  }).isRequired,
-};
-
-export default graphql(getUserQuery)(App);
+export default App;

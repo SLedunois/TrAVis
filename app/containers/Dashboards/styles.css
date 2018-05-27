@@ -1,0 +1,53 @@
+.headSelect {
+  margin-left: 24px;
+}
+
+.dashboardsHeadRight {
+  margin: 0 24px 0 0;
+  padding: 0;
+  list-style-type: none;
+  height: 31px;
+  position: absolute;
+  top: 32px;
+  right: 0;
+  line-height: normal;
+}
+
+.dashboardsHeadRight li {
+  display: inline-block;
+  position: relative;
+  height: 31px;
+  line-height: 31px;
+  float: left;
+}
+
+.dashboardsHeadRight li a {
+  width: 24px;
+  height: 31px;
+  display: block;
+}
+
+.dashboardsHeadRight li:nth-child(2),
+.dashboardsHeadRight li:nth-child(3) {
+  margin-left: 48px;
+  width: 24px;
+}
+
+.dashboardsHeadRight li:nth-child(2) svg,
+.dashboardsHeadRight li:nth-child(3) svg {
+  position: absolute;  
+}
+
+.dashboardsHeadRight li:nth-child(2) svg {
+  top: 5px;
+  left: 3px;
+}
+
+.dashboardsHeadRight li:nth-child(3) svg {
+  top: 13px;
+  left: 4px;
+}
+
+.dashboardsHeadRight svg path {
+  fill: #435163;
+}

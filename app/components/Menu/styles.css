@@ -27,7 +27,7 @@
   color: inherit;
 }
 
-.header ul li svg {
+.header ul li svg path {
   fill: #2a2f46;
   margin-right: 8px;
 }

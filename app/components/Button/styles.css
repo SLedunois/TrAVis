@@ -1,0 +1,28 @@
+.button {
+  padding: 8px;
+  box-shadow: none;
+  border: none;
+  border-radius: 3px;
+  color: #FFF;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.button:focus {
+  outline: none;
+}
+
+.ACTION {
+  background-color: #655FFF;
+}
+
+.ADD {
+  background-color: #45DBBE;
+}
+
+.ADD > svg {
+  width: 10px;
+  height: 10px;
+  margin-right: 4px;
+  margin-left: 0 !important;
+}

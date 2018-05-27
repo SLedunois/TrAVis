@@ -23,3 +23,7 @@ body {
 :global(.pointer) {
   cursor: pointer;
 }
+
+:global(.right-magnet) {
+  float: right;
+}
