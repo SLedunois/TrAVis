@@ -1,4 +1,4 @@
-const db = require('../configuration/database');
+const db = require("../configuration/database");
 
 class UserService {
   static format(user) {
@@ -6,7 +6,7 @@ class UserService {
       _id: user._id,
       username: user.username,
       firstname: user.firstname,
-      lastname: user.lastname,
+      lastname: user.lastname
     };
   }
 
@@ -16,12 +16,15 @@ class UserService {
    */
   static async getUserById(id) {
     try {
-      const user = await db.get().collection('User')
+      const user = await db
+        .get()
+        .collection("User")
         .findOne({ _id: id });
       return this.format(user);
     } catch (e) {
-      console.error('[UserService@getUserById] ' +
-        'An error occured when collecting user');
+      console.error(
+        "[UserService@getUserById] An error occured when collecting user"
+      );
       console.error(e);
     }
   }
@@ -32,10 +35,14 @@ class UserService {
    */
   static async getUser(username) {
     try {
-      return await db.get().collection('User').findOne({ username });
+      return await db
+        .get()
+        .collection("User")
+        .findOne({ username });
     } catch (e) {
-      console.error('[UserService@getUser] ' +
-        'An error occured when collecting user');
+      console.error(
+        "[UserService@getUser] An error occured when collecting user"
+      );
       console.error(e);
     }
   }

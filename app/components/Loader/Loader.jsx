@@ -1,7 +1,7 @@
-import React from 'react';
-import Logo from '../../icons/Logo';
+import React from "react";
+import Logo from "../../icons/Logo";
 
-import styles from './styles.css';
+import styles from "./styles.css";
 
 const Loader = () => (
   <div className={styles.loader}>

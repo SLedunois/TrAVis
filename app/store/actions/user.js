@@ -1,13 +1,13 @@
-import UserService from '../../api/user';
-import User from '../definitions/user';
+import UserService from "../../api/user";
+import User from "../definitions/user";
 
 export default function fetchUser() {
-  return async (dispatch) => {
+  return async dispatch => {
     try {
       const user = await UserService.getUser();
       dispatch({
         type: User.GET_USER,
-        user,
+        user
       });
     } catch (err) {
       throw err;

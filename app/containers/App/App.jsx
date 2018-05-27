@@ -1,16 +1,16 @@
-import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
-import PropType from 'prop-types';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import React, { Component } from "react";
+import { Route } from "react-router-dom";
+import PropType from "prop-types";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
 
-import fetchUser from '../../store/actions/user';
+import fetchUser from "../../store/actions/user";
 
-import Loader from '../../components/Loader/Loader';
-import Menu from '../../components/Menu/Menu';
-import Dashboards from '../Dashboards/Dashboards';
-import Messages from '../Messages/Messages';
-import Timeline from '../Timeline/Timeline';
+import Loader from "../../components/Loader/Loader";
+import Menu from "../../components/Menu/Menu";
+import Dashboards from "../Dashboards/Dashboards";
+import Messages from "../Messages/Messages";
+import Timeline from "../Timeline/Timeline";
 
 class App extends Component {
   constructor(props) {
@@ -21,9 +21,7 @@ class App extends Component {
 
   render() {
     if (!this.props.user) {
-      return (
-        <Loader />
-      );
+      return <Loader />;
     }
     return (
       <div>
@@ -38,16 +36,16 @@ class App extends Component {
 
 App.propTypes = {
   user: PropType.object,
-  fetchUser: PropType.func.isRequired,
+  fetchUser: PropType.func.isRequired
 };
 
 App.defaultProps = {
-  user: null,
+  user: null
 };
 
 function mapStateToProps({ user }) {
   return {
-    user,
+    user
   };
 }
 
@@ -55,4 +53,7 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators({ fetchUser }, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);

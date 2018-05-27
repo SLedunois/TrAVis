@@ -1,4 +1,4 @@
-const bcrypt = require('bcrypt-nodejs');
+const bcrypt = require("bcrypt-nodejs");
 
 class Utils {
   /**
@@ -27,7 +27,7 @@ class Utils {
    */
   static isLoggedIn(req, res, next) {
     if (!req.isAuthenticated()) {
-      return res.redirect('/auth');
+      return res.redirect("/auth");
     }
 
     return next();

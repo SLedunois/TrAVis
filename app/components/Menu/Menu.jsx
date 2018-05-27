@@ -1,14 +1,14 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
-import { PropTypes } from 'prop-types';
-import styles from './styles.css';
+import React from "react";
+import { NavLink } from "react-router-dom";
+import { PropTypes } from "prop-types";
+import styles from "./styles.css";
 
-import Logo from '../../icons/Logo';
-import DashboardLogo from '../../icons/Dashboard';
-import TimelineLogo from '../../icons/Timeline';
-import MessageLogo from '../../icons/Message';
+import Logo from "../../icons/Logo";
+import DashboardLogo from "../../icons/Dashboard";
+import TimelineLogo from "../../icons/Timeline";
+import MessageLogo from "../../icons/Message";
 
-const Menu = (props) => {
+const Menu = props => {
   const { user } = props;
   return (
     <header className={styles.header}>
@@ -57,8 +57,8 @@ Menu.propTypes = {
   user: PropTypes.shape({
     username: PropTypes.string.isRequired,
     firstname: PropTypes.string.isRequired,
-    lastname: PropTypes.string.isRequired,
-  }).isRequired,
+    lastname: PropTypes.string.isRequired
+  }).isRequired
 };
 
 export default Menu;

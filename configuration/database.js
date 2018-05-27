@@ -1,7 +1,7 @@
-const { MongoClient } = require('mongodb');
+const { MongoClient } = require("mongodb");
 
 const state = {
-  db: null,
+  db: null
 };
 
 /**
@@ -30,9 +30,9 @@ exports.get = () => state.db;
  * Close database instance
  * @param {Function} done Next middleware function
  */
-exports.close = (done) => {
+exports.close = done => {
   if (state.db) {
-    state.db.close((err) => {
+    state.db.close(err => {
       state.db = null;
       done(err);
     });

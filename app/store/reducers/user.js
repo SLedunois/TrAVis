@@ -1,4 +1,4 @@
-import User from '../definitions/user';
+import User from "../definitions/user";
 
 export default function reducer(state, action) {
   switch (action.type) {

@@ -1,22 +1,22 @@
-import React from 'react';
-import { PropTypes } from 'prop-types';
+import React from "react";
+import { PropTypes } from "prop-types";
 
-import AddIcon from '../../icons/Add';
+import AddIcon from "../../icons/Add";
 
-import styles from './styles.css';
+import styles from "./styles.css";
 
-const Button = (props) => {
+const Button = props => {
   const { value } = props;
   let contentType;
   switch (props.type) {
-    case 'BUTTON':
-      contentType = '';
+    case "BUTTON":
+      contentType = "";
       break;
-    case 'ADD':
+    case "ADD":
       contentType = <AddIcon />;
       break;
     default:
-      contentType = '';
+      contentType = "";
   }
   const className = `uppercase pointer ${styles.button} ${styles[props.type]}`;
   return (
@@ -28,11 +28,11 @@ const Button = (props) => {
 
 Button.propTypes = {
   value: PropTypes.string.isRequired,
-  type: PropTypes.string,
+  type: PropTypes.string
 };
 
 Button.defaultProps = {
-  type: 'ACTION',
+  type: "ACTION"
 };
 
 export default Button;
