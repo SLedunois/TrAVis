@@ -33,11 +33,9 @@ app.use(passport.initialize());
 app.use(flash());
 app.use(passport.session());
 
-const index = require('./routes/index');
-const auth = require('./routes/auth');
-
-app.use('/', index);
-app.use('/auth', auth);
+app.use('/', require('./routes/index'));
+app.use('/auth', require('./routes/auth'));
+app.use('/user', require('./routes/user'));
 
 // catch 404 and forward to error handler
 /** app.use(function(req, res, next) {
